@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CurrencyListViewController.swift
 //  ExchangeRates
 //
 //  Created by Vadim Zhepetov on 08/10/2019.
@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CurrencyListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        CurrencyConverter.currencyName(code: "Waaagh!!")
+        
     }
 
 
