@@ -10,4 +10,10 @@ import UIKit
 
 class CurrencyCellView: UITableViewCell {
     
+    @IBOutlet weak var label: UILabel!
+
+    func configure(viewModel: CurrencyCellViewModel) {
+        label.text = String(format: "\(viewModel.currencyCode) = \(viewModel.baseCurrency) %.3f", viewModel.rate)
+    }
+    
 }

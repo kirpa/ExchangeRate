@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RateModel {
+struct RateModel: Equatable {
     
     let baseCurrency: String
     let currency: String
