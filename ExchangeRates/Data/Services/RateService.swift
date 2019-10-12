@@ -27,7 +27,10 @@ class RateService {
                     let rates = fullJSON["rates"] as? [String: Double]
                     else { throw ApiError.parsingStructureError(response: json) }
                 
-                return rates.map { key, value in RateModel(baseCurrency: baseCurrency, currency: key, rate: value) }
+                // API includes base currency rate for currencies other than EUR. Filtering it out for better UX                
+                return rates
+                    .filter { key, value in return key != baseCurrency }
+                    .map { key, value in RateModel(baseCurrency: baseCurrency, currency: key, rate: value) }
         }
     }
     

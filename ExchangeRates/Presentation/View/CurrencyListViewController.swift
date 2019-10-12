@@ -50,7 +50,15 @@ class CurrencyListViewController: UIViewController {
         )        
         
         sections.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(CurrencyCellViewModel.self)
+            .filter { [weak self] model in
+                guard let strongSelf = self else { return false }
+        
+                return model != strongSelf.viewModel.activeCurrency.value
+            }
+            .bind(to: self.viewModel.activeCurrency)
+            .disposed(by: disposeBag)        
     }
 
 }
-
