@@ -16,6 +16,7 @@
 		DD5A3478234E45210041F7D1 /* CurrencyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A3477234E45210041F7D1 /* CurrencyCellViewModel.swift */; };
 		DD5A347A234E45520041F7D1 /* CurrencyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A3479234E45520041F7D1 /* CurrencyCellView.swift */; };
 		DD5A347C234E45D70041F7D1 /* ActiveCurrencyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A347B234E45D70041F7D1 /* ActiveCurrencyCellView.swift */; };
+		DD5A3481235231420041F7D1 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A3480235231420041F7D1 /* CurrencyView.swift */; };
 		DDB24DD8234CCEAC007669CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB24DD7234CCEAC007669CC /* AppDelegate.swift */; };
 		DDB24DDA234CCEAC007669CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB24DD9234CCEAC007669CC /* SceneDelegate.swift */; };
 		DDB24DDC234CCEAC007669CC /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB24DDB234CCEAC007669CC /* CurrencyListViewController.swift */; };
@@ -36,6 +37,7 @@
 		DD5A3477234E45210041F7D1 /* CurrencyCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellViewModel.swift; sourceTree = "<group>"; };
 		DD5A3479234E45520041F7D1 /* CurrencyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellView.swift; sourceTree = "<group>"; };
 		DD5A347B234E45D70041F7D1 /* ActiveCurrencyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCurrencyCellView.swift; sourceTree = "<group>"; };
+		DD5A3480235231420041F7D1 /* CurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
 		DDB24DD4234CCEAC007669CC /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB24DD7234CCEAC007669CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB24DD9234CCEAC007669CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				DD5A346C234CF23D0041F7D1 /* Currency.swift */,
 				DD5A3471234D3D0B0041F7D1 /* Errors.swift */,
+				DD5A3480235231420041F7D1 /* CurrencyView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				DD5A347A234E45520041F7D1 /* CurrencyCellView.swift in Sources */,
 				DD5A3470234D373D0041F7D1 /* RateService.swift in Sources */,
 				DDB24DDA234CCEAC007669CC /* SceneDelegate.swift in Sources */,
+				DD5A3481235231420041F7D1 /* CurrencyView.swift in Sources */,
 				DD5A346A234CF1E60041F7D1 /* RateModel.swift in Sources */,
 				DD5A3472234D3D0B0041F7D1 /* Errors.swift in Sources */,
 			);
@@ -459,13 +463,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WTGHLN92U3;
+				DEVELOPMENT_TEAM = PAH3HN3ZPA;
 				INFOPLIST_FILE = ExchangeRates/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vadim.ExchangeRates;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vadim.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -478,13 +483,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WTGHLN92U3;
+				DEVELOPMENT_TEAM = PAH3HN3ZPA;
 				INFOPLIST_FILE = ExchangeRates/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vadim.ExchangeRates;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vadim.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

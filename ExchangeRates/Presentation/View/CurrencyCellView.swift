@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrencyCellView: UITableViewCell {
+class CurrencyCellView: UITableViewCell, CurrencyView {
     
     @IBOutlet weak var label: UILabel!
 

@@ -6,4 +6,15 @@
 //  Copyright © 2019 Vadim Zhepetov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ActiveCurrencyCellView: UITableViewCell, CurrencyView {
+ 
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var textInput: UITextField!
+    
+    func configure(viewModel: CurrencyCellViewModel) {    
+        label.text = viewModel.currencyCode
+    }
+    
+}

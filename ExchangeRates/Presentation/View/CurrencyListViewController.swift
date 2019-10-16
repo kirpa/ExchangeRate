@@ -31,23 +31,33 @@ class CurrencyListViewController: UIViewController {
                 return Observable.just([
                     RateListSection(model: "Active currency", items: [activeCurrency]),
                     RateListSection(model: "Exchange rates", items: sortedRates)
+                    
                 ])
-        }.flatMapLatest { return $0 }
+        }
+        .flatMapLatest { return $0 }
+        .distinctUntilChanged()
         .asDriver(onErrorJustReturn: [])
         .drive(sections)
         .disposed(by: disposeBag)
         
          let dataSource = RxTableViewSectionedReloadDataSource<RateListSection>(
-                   configureCell: { (_, tv, ip, currencyModel: CurrencyCellViewModel) in
-                    guard let cell = tv.dequeueReusableCell(withIdentifier: "CurrencyCellView") as? CurrencyCellView
-                        else {
-                            print("Error dequeueing cell")
-                            return UITableViewCell()
-                    }
-                    cell.configure(viewModel: currencyModel)
+            configureCell: { (_, tv, ip, currencyModel: CurrencyCellViewModel) in                
+                let currencyView: CurrencyView? = ip.section == 0 ?
+                    tv.dequeueReusableCell(withIdentifier: "ActiveCurrencyCellView") as? CurrencyView :
+                    tv.dequeueReusableCell(withIdentifier: "CurrencyCellView") as? CurrencyView
+                    
+                                
+                currencyView?.configure(viewModel: currencyModel)
+                
+                
+                if let cell = currencyView as? UITableViewCell {
                     return cell
-                   }
-        )        
+                } else {
+                    print("Error dequeueing cell")
+                    return UITableViewCell()
+                }
+            }
+        )
         
         sections.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
         
