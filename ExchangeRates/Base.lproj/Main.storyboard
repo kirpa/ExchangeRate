@@ -21,7 +21,7 @@
                                     <navigationItem title="Currency conversion" id="WoR-pk-R8p"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pgv-8x-eh6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pgv-8x-eh6">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -33,40 +33,44 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcC-HJ-j5e">
-                                                    <rect key="frame" x="30" y="15" width="42" height="21"/>
+                                                    <rect key="frame" x="30" y="15" width="292" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hXz-Bd-q0I">
-                                                    <rect key="frame" x="92" y="8.5" width="302" height="34"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4I-75-yWW">
+                                                    <rect key="frame" x="342" y="15" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="TCd-ai-GAR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="hXz-Bd-q0I" secondAttribute="trailing" constant="20" id="JWs-y1-QUi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="q4I-75-yWW" secondAttribute="trailing" constant="10" id="5Nt-io-0go"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="XcC-HJ-j5e" secondAttribute="bottom" constant="4" id="JnV-3j-2uo"/>
                                                 <constraint firstItem="XcC-HJ-j5e" firstAttribute="leading" secondItem="4nF-Ct-4Ii" secondAttribute="leadingMargin" constant="10" id="K3S-ET-ISz"/>
                                                 <constraint firstItem="XcC-HJ-j5e" firstAttribute="top" secondItem="4nF-Ct-4Ii" secondAttribute="topMargin" constant="4" id="MNE-hC-DpR"/>
-                                                <constraint firstItem="hXz-Bd-q0I" firstAttribute="leading" secondItem="XcC-HJ-j5e" secondAttribute="trailing" constant="20" id="a0o-LC-lTw"/>
-                                                <constraint firstItem="hXz-Bd-q0I" firstAttribute="centerY" secondItem="4nF-Ct-4Ii" secondAttribute="centerY" id="fka-zL-SJb"/>
+                                                <constraint firstItem="q4I-75-yWW" firstAttribute="centerY" secondItem="4nF-Ct-4Ii" secondAttribute="centerY" id="jCk-qp-T9L"/>
+                                                <constraint firstItem="q4I-75-yWW" firstAttribute="leading" secondItem="XcC-HJ-j5e" secondAttribute="trailing" constant="20" id="kLS-Kx-QDE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="label" destination="XcC-HJ-j5e" id="792-Ss-uzS"/>
-                                            <outlet property="textInput" destination="hXz-Bd-q0I" id="s7w-Eg-Rm8"/>
+                                            <outlet property="currencyCodeLabel" destination="XcC-HJ-j5e" id="lBh-EQ-vl9"/>
+                                            <outlet property="currencyValueLabel" destination="q4I-75-yWW" id="Rld-Et-vL9"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCellView" id="J1X-vr-aUb" customClass="CurrencyCellView" customModule="ExchangeRates" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="79" width="414" height="43"/>
+                                        <rect key="frame" x="0.0" y="79" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J1X-vr-aUb" id="aIO-zg-YLZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcw-l3-Cef">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

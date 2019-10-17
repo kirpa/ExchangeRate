@@ -10,11 +10,11 @@ import UIKit
 
 class ActiveCurrencyCellView: UITableViewCell, CurrencyView {
  
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var textInput: UITextField!
+    @IBOutlet weak var currencyCodeLabel: UILabel!
+    @IBOutlet weak var currencyValueLabel: UILabel!
     
     func configure(viewModel: CurrencyCellViewModel) {    
-        label.text = viewModel.currencyCode
+        currencyCodeLabel.text = viewModel.currencyCode
     }
     
 }

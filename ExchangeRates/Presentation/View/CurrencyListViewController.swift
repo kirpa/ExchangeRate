@@ -17,8 +17,11 @@ class CurrencyListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var navigationView: UINavigationBar!
+    
     fileprivate let viewModel = CurrencyListViewModel()
     fileprivate let sections = PublishSubject<[RateListSection]>()
+    fileprivate let keyboardService = CurrencyKeyboardService()
     fileprivate let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -45,10 +48,8 @@ class CurrencyListViewController: UIViewController {
                 let currencyView: CurrencyView? = ip.section == 0 ?
                     tv.dequeueReusableCell(withIdentifier: "ActiveCurrencyCellView") as? CurrencyView :
                     tv.dequeueReusableCell(withIdentifier: "CurrencyCellView") as? CurrencyView
-                    
                                 
                 currencyView?.configure(viewModel: currencyModel)
-                
                 
                 if let cell = currencyView as? UITableViewCell {
                     return cell
@@ -68,7 +69,22 @@ class CurrencyListViewController: UIViewController {
                 return model != strongSelf.viewModel.activeCurrency.value
             }
             .bind(to: self.viewModel.activeCurrency)
-            .disposed(by: disposeBag)        
+            .disposed(by: disposeBag)
+                        
+        keyboardService.currentText
+            .subscribe(onNext: { text in
+                print(text)
+            })
+            .disposed(by: disposeBag)
+        
+        // Adding keyboard control to navigation bar to avoid keyboard dismiss on UITableView reload in case when rates are updated
+        navigationView.addSubview(keyboardService)
+        
+        tableView.rx.itemSelected
+        .subscribe { [weak self] _ in
+            self?.keyboardService.becomeFirstResponder()
+        }
+        .disposed(by: disposeBag)
     }
-
+        
 }
