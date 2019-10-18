@@ -14,6 +14,9 @@ class CurrencyCellView: UITableViewCell, CurrencyView {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var roundedBackground: UIView! {
+        willSet { newValue.roundedCorners() }
+    }
     
     fileprivate let disposeBag = DisposeBag()
     
