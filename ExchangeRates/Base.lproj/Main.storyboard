@@ -34,7 +34,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveCurrencyCellView" id="dCs-Cx-3VU" customClass="ActiveCurrencyCellView" customModule="ExchangeRates" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActiveCurrencyCellView" id="dCs-Cx-3VU" customClass="ActiveCurrencyCellView" customModule="ExchangeRates" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="65.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dCs-Cx-3VU" id="4nF-Ct-4Ii">
@@ -50,7 +50,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4I-75-yWW">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="q4I-75-yWW">
                                                             <rect key="frame" x="348" y="15.5" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -85,12 +85,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="currencyCodeLabel" destination="XcC-HJ-j5e" id="lBh-EQ-vl9"/>
-                                            <outlet property="currencyValueLabel" destination="q4I-75-yWW" id="Rld-Et-vL9"/>
+                                            <outlet property="codeLabel" destination="XcC-HJ-j5e" id="O86-oq-kwM"/>
+                                            <outlet property="nameLabel" destination="rWf-Hf-KmY" id="sri-IJ-kHD"/>
                                             <outlet property="roundedBackground" destination="6WI-JX-5B3" id="KYV-g8-D0S"/>
+                                            <outlet property="valueLabel" destination="q4I-75-yWW" id="AJA-rE-Iha"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCellView" id="J1X-vr-aUb" customClass="CurrencyCellView" customModule="ExchangeRates" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CurrencyCellView" id="J1X-vr-aUb" customClass="CurrencyCellView" customModule="ExchangeRates" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="93.5" width="414" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J1X-vr-aUb" id="aIO-zg-YLZ">
@@ -112,7 +113,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-1J-VtU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-1J-VtU">
                                                             <rect key="frame" x="352" y="8" width="38" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
@@ -149,9 +150,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="label" destination="hcw-l3-Cef" id="bXL-ml-nBr"/>
+                                            <outlet property="codeLabel" destination="hcw-l3-Cef" id="y3g-dp-aqt"/>
+                                            <outlet property="nameLabel" destination="l98-ry-1yc" id="jV3-G1-pfO"/>
+                                            <outlet property="rateLabel" destination="GQ1-lf-Q13" id="aSB-hs-DzO"/>
                                             <outlet property="roundedBackground" destination="9XV-rf-PMO" id="k37-vb-Z1e"/>
-                                            <outlet property="valueLabel" destination="cbV-1J-VtU" id="4t2-Zm-QGG"/>
+                                            <outlet property="valueLabel" destination="cbV-1J-VtU" id="Qbo-IT-AJT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -15,8 +15,10 @@ class CurrencyCellViewModel: Equatable {
     var baseCurrency: String { model.baseCurrency }
     var rate: Double { model.rate }
     var value: Driver<Double>
+    var currencyName: String? { locale.localizedString(forCurrencyCode: model.currency) }
     
     fileprivate let model: RateModel
+    fileprivate let locale = NSLocale.current
     fileprivate let disposeBag = DisposeBag()
     
     init(withModel: RateModel, amount: Observable<Double>) {

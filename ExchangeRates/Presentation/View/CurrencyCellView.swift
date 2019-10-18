@@ -12,8 +12,10 @@ import RxCocoa
 
 class CurrencyCellView: UITableViewCell, CurrencyView {
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var roundedBackground: UIView! {
         willSet { newValue.roundedCorners() }
     }
@@ -21,9 +23,11 @@ class CurrencyCellView: UITableViewCell, CurrencyView {
     fileprivate let disposeBag = DisposeBag()
     
     func configure(viewModel: CurrencyCellViewModel) {
-        label.text = String(format: "\(viewModel.currencyCode) = \(viewModel.baseCurrency) %.3f", viewModel.rate)
+        codeLabel.text = viewModel.currencyCode
+        nameLabel.text = viewModel.currencyName
+        rateLabel.text = String(format: "1 \(viewModel.baseCurrency) = %.3f", viewModel.rate)
         viewModel.value
-            .map { String(format: "1 \(viewModel.currencyCode) = %.2f", $0) }
+            .map { String(format: "%.3f", $0) }
             .drive(valueLabel.rx.text)
             .disposed(by: disposeBag)
     }
