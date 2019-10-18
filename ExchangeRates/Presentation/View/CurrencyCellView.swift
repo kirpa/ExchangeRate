@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CurrencyCellView: UITableViewCell, CurrencyView {
     
     @IBOutlet weak var label: UILabel!
-
+    @IBOutlet weak var valueLabel: UILabel!
+    
+    fileprivate let disposeBag = DisposeBag()
+    
     func configure(viewModel: CurrencyCellViewModel) {
         label.text = String(format: "\(viewModel.currencyCode) = \(viewModel.baseCurrency) %.3f", viewModel.rate)
+        viewModel.value
+            .map { String(format: "1 \(viewModel.currencyCode) = %.2f", $0) }
+            .drive(valueLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
 }

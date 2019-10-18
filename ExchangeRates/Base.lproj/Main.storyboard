@@ -26,20 +26,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveCurrencyCellView" id="dCs-Cx-3VU" customClass="ActiveCurrencyCellView" customModule="ExchangeRates" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="51"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="51.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dCs-Cx-3VU" id="4nF-Ct-4Ii">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcC-HJ-j5e">
-                                                    <rect key="frame" x="30" y="15" width="292" height="21"/>
+                                                    <rect key="frame" x="30" y="15" width="292" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4I-75-yWW">
-                                                    <rect key="frame" x="342" y="15" width="42" height="21"/>
+                                                    <rect key="frame" x="342" y="15.5" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="42" id="TCd-ai-GAR"/>
                                                     </constraints>
@@ -63,14 +63,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCellView" id="J1X-vr-aUb" customClass="CurrencyCellView" customModule="ExchangeRates" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="79" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="79.5" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J1X-vr-aUb" id="aIO-zg-YLZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcw-l3-Cef">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="299" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-1J-VtU">
+                                                    <rect key="frame" x="339" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -78,13 +84,16 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hcw-l3-Cef" firstAttribute="leading" secondItem="aIO-zg-YLZ" secondAttribute="leadingMargin" id="0u5-j0-78j"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hcw-l3-Cef" secondAttribute="trailing" id="Ju4-8e-KZy"/>
+                                                <constraint firstItem="cbV-1J-VtU" firstAttribute="centerY" secondItem="aIO-zg-YLZ" secondAttribute="centerY" id="D7e-O3-1cY"/>
+                                                <constraint firstItem="cbV-1J-VtU" firstAttribute="leading" secondItem="hcw-l3-Cef" secondAttribute="trailing" constant="20" id="QdC-Ao-O9C"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cbV-1J-VtU" secondAttribute="trailing" constant="13" id="Rry-p2-YOx"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hcw-l3-Cef" secondAttribute="bottom" id="dJ9-MY-xXN"/>
                                                 <constraint firstItem="hcw-l3-Cef" firstAttribute="top" secondItem="aIO-zg-YLZ" secondAttribute="topMargin" id="prU-MU-A8U"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="label" destination="hcw-l3-Cef" id="bXL-ml-nBr"/>
+                                            <outlet property="valueLabel" destination="cbV-1J-VtU" id="4t2-Zm-QGG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

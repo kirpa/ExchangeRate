@@ -63,18 +63,17 @@ class CurrencyListViewController: UIViewController {
         sections.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
         
         tableView.rx.modelSelected(CurrencyCellViewModel.self)
-            .filter { [weak self] model in
-                guard let strongSelf = self else { return false }
-        
-                return model != strongSelf.viewModel.activeCurrency.value
-            }
-            .bind(to: self.viewModel.activeCurrency)
+            .do(onNext: { [unowned self] _ in
+                self.keyboardService.resetText()
+            })
+            .bind(to: self.viewModel.updateActiveCurrency)
             .disposed(by: disposeBag)
                         
+        
+        keyboardService.resetText()
         keyboardService.currentText
-            .subscribe(onNext: { text in
-                print(text)
-            })
+            .map { Double($0) ?? 0 }
+            .bind(to: viewModel.currencyAmount)
             .disposed(by: disposeBag)
         
         // Adding keyboard control to navigation bar to avoid keyboard dismiss on UITableView reload in case when rates are updated

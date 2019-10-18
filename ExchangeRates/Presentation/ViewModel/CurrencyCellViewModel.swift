@@ -6,24 +6,24 @@
 //  Copyright © 2019 Vadim Zhepetov. All rights reserved.
 //
 
+import RxSwift
+import RxCocoa
+
 class CurrencyCellViewModel: Equatable {
     
-    var currencyCode: String {
-        model.currency
-    }
-    
-    var baseCurrency: String {
-        model.baseCurrency
-    }
-    
-    var rate: Double {
-        model.rate
-    }
+    var currencyCode: String { model.currency }
+    var baseCurrency: String { model.baseCurrency }
+    var rate: Double { model.rate }
+    var value: Driver<Double>
     
     fileprivate let model: RateModel
+    fileprivate let disposeBag = DisposeBag()
     
-    init(withModel: RateModel) {
+    init(withModel: RateModel, amount: Observable<Double>) {
         model = withModel
+        value = amount
+            .asDriver(onErrorJustReturn: 1)
+            .map { withModel.rate * $0 }
     }
     
     static func ==(lhs: CurrencyCellViewModel, rhs: CurrencyCellViewModel) -> Bool {

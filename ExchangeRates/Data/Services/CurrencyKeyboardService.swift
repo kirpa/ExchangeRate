@@ -23,7 +23,14 @@ class CurrencyKeyboardService: UIControl, UIKeyInput {
     var hasText: Bool {
         currentText.value.count > 0
     }
-
+    
+    
+    // MARK: - Implementation
+    
+    func resetText() {
+        currentText.accept("0")
+    }
+    
     
     // MARK: - UIKeyInput implementation
 
