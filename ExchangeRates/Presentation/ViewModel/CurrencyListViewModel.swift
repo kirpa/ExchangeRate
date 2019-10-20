@@ -29,8 +29,6 @@ class CurrencyListViewModel {
     
     let currencyRates = BehaviorRelay<[CurrencyCellViewModel]>(value: [])
     
-    var hackCounter = 0
-    
     private let disposeBag = DisposeBag()
     
     init() {

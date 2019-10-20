@@ -15,8 +15,7 @@ class CurrencyListViewController: UIViewController {
                 
     typealias RateListSection = SectionModel<String, CurrencyCellViewModel>
     
-    @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var tableView: UITableView!    
     @IBOutlet weak var navigationView: UINavigationBar!
     
     fileprivate let viewModel = CurrencyListViewModel()
@@ -26,7 +25,12 @@ class CurrencyListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
+        bindTableView()
+        bindKeyboard()
+    }
+     
+    func bindTableView() {
         Observable.combineLatest(viewModel.activeCurrency, viewModel.currencyRates)
             .map { activeCurrency, currencyRates -> Observable<[RateListSection]> in
                 let sortedRates = currencyRates.sorted { modelA, modelB in modelA.currencyCode < modelB.currencyCode }
@@ -44,7 +48,7 @@ class CurrencyListViewController: UIViewController {
         .disposed(by: disposeBag)
         
          let dataSource = RxTableViewSectionedReloadDataSource<RateListSection>(
-            configureCell: { (_, tv, ip, currencyModel: CurrencyCellViewModel) in                
+            configureCell: { (_, tv, ip, currencyModel: CurrencyCellViewModel) in
                 let currencyView: CurrencyView? = ip.section == 0 ?
                     tv.dequeueReusableCell(withIdentifier: "ActiveCurrencyCellView") as? CurrencyView :
                     tv.dequeueReusableCell(withIdentifier: "CurrencyCellView") as? CurrencyView
@@ -68,8 +72,9 @@ class CurrencyListViewController: UIViewController {
             })
             .bind(to: self.viewModel.updateActiveCurrency)
             .disposed(by: disposeBag)
-                        
-        
+    }
+    
+    func bindKeyboard() {
         keyboardService.resetText()
         keyboardService.currentText
             .map { Double($0) ?? 0 }
@@ -85,5 +90,4 @@ class CurrencyListViewController: UIViewController {
         }
         .disposed(by: disposeBag)
     }
-        
 }
