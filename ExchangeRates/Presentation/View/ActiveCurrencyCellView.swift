@@ -19,7 +19,7 @@ class ActiveCurrencyCellView: UITableViewCell, CurrencyView {
         willSet { newValue.roundedCorners() }
     }
     
-    fileprivate let disposeBag = DisposeBag()
+    fileprivate var disposeBag = DisposeBag()
     
     func configure(viewModel: CurrencyCellViewModel) {    
         codeLabel.text = viewModel.currencyCode
@@ -28,6 +28,10 @@ class ActiveCurrencyCellView: UITableViewCell, CurrencyView {
             .map { String(format: "%.3f", $0) }
             .drive(valueLabel.rx.text)
             .disposed(by: disposeBag)
+    }
+    
+    override func prepareForReuse() {
+        disposeBag = DisposeBag()
     }
     
 }

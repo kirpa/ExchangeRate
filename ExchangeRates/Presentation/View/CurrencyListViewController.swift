@@ -37,8 +37,7 @@ class CurrencyListViewController: UIViewController {
                 
                 return Observable.just([
                     RateListSection(model: "Active currency", items: [activeCurrency]),
-                    RateListSection(model: "Exchange rates", items: sortedRates)
-                    
+                    RateListSection(model: "Exchange rates", items: sortedRates)                    
                 ])
         }
         .flatMapLatest { return $0 }
